@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: SmartTabTargetForever
+## Notes: Em zonas PvP, TAB mira no jogador inimigo mais proximo. Adaptado do SmartTabTarget (WotLK).
+## Author: Marcus (adaptado do SmartTabTarget, WotLK)
+## Version: 1.1.1
+
+SmartTabTargetForever.lua

@@ -1,0 +1,8 @@
+# Backups locais
+_backup_*/
+*.bak*
+*.orig
+
+# Sistema
+Thumbs.db
+.DS_Store
