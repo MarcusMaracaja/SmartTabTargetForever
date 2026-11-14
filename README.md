@@ -1,5 +1,9 @@
 # SmartTabTargetForever
 
+<p align="center">
+  <img src="LogoSmartTabTargetForever.jpg" alt="SmartTabTargetForever" width="360">
+</p>
+
 Um único recurso, bem pequeno para o **WoW Forever** (Interface `16001`): em **zonas PvP**, a tecla `TAB` mira o **jogador inimigo mais próximo** (e `SHIFT-TAB` o anterior), em vez de ciclar alvos normais.
 
 ## O que faz
