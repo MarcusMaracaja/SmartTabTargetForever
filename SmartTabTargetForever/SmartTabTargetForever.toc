@@ -1,7 +1,8 @@
 ## Interface: 16001
 ## Title: SmartTabTargetForever
-## Notes: Em zonas PvP, TAB mira no jogador inimigo mais proximo. Janela /smarttab com aba Sobre. Adaptado do SmartTabTarget (WotLK).
+## Notes: In PvP zones, TAB targets the nearest enemy player. /smarttab opens the About window. | Em zonas PvP, TAB mira no jogador inimigo mais proximo. /smarttab abre a janela Sobre.
 ## Author: Marcus
-## Version: 1.2.0
+## Version: 1.3.0
 
+Locales.lua
 SmartTabTargetForever.lua

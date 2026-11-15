@@ -1,6 +1,7 @@
 -- SmartTabTargetForever.lua
 -- Em zonas PvP, TAB mira no jogador inimigo mais proximo.
 -- Janela de configuracoes: /smarttab (alias /stt) — aba "Sobre" com explicacao do addon.
+local L = (_G["SmartTabTargetForever"] and _G["SmartTabTargetForever"].L) or {}
 
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -15,7 +16,7 @@ local function UpdateOverride()
     if IsInPvPZone() then
         SetOverrideBinding(frame, true, "TAB", "TARGETNEARESTENEMYPLAYER")
         SetOverrideBinding(frame, true, "SHIFT-TAB", "TARGETPREVIOUSENEMYPLAYER")
-        DEFAULT_CHAT_FRAME:AddMessage("|cff33ff99SmartTabTargetForever:|r Zona PvP detectada. TAB -> inimigo mais proximo.")
+        DEFAULT_CHAT_FRAME:AddMessage(L.pvp_zone)
     else
         ClearOverrideBindings(frame)
     end
@@ -82,7 +83,7 @@ local function CreateMainFrame()
     local aboutBtn = CreateFrame("Button", nil, tabContainer, "UIPanelButtonTemplate")
     aboutBtn:SetSize(110, 24)
     aboutBtn:SetPoint("TOPLEFT", tabContainer, "TOPLEFT", 0, 0)
-    aboutBtn:SetText("Sobre")
+    aboutBtn:SetText(L.about_tab)
     aboutBtn:Disable()
 
     -- =====================================================
@@ -94,7 +95,7 @@ local function CreateMainFrame()
 
     local version = content:CreateFontString(nil, "ARTWORK", "GameFontHighlightSmall")
     version:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -4)
-    version:SetText("Versão 1.2.0 · WoW Forever (Interface 16001)")
+    version:SetText(L.version)
 
     local function AddSection(anchorTo, yOffset, header, body)
         local h = content:CreateFontString(nil, "ARTWORK", "GameFontNormal")
@@ -110,14 +111,11 @@ local function CreateMainFrame()
         return b
     end
 
-    local s1 = AddSection(version, -14, "O que é",
-        "O SmartTabTargetForever é um addon minimalista para o WoW Forever. Dentro de **zonas PvP** (instâncias PvP / BGs), ele troca o comportamento da tecla TAB: em vez de ciclar alvos comuns, passa a mirar diretamente no **jogador inimigo mais próximo** (dando ao jogador uma mira tática para combate PvP).\n\nAo sair da zona PvP, o TAB volta ao comportamento normal — tudo automático, sem precisar configurar nada.")
+    local s1 = AddSection(version, -14, L.s1_header, L.s1_body)
 
-    local s2 = AddSection(s1, -14, "Como usar",
-        "Nada a fazer: entre numa instância PvP e pressione TAB. Se quiser abrir esta janela, use **/smarttab** ou **/stt**. Em zonas PvE (no aberto de mundo), o comportamento é o padrão do jogo.")
+    local s2 = AddSection(s1, -14, L.s2_header, L.s2_body)
 
-    local s3 = AddSection(s2, -14, "Créditos — criação",
-        "|cffffffffMarcus|r — criação e direção do SmartTabTargetForever.\n\n|cffffffffInkling 2 Small Free (OpenCode)|r — parceiro de tecnologia e desenvolvimento: inteligência artificial usada como par de programação.\n\nDerivado do SmartTabTarget (WotLK), com lógica adaptada para o cliente moderno do WoW Forever.")
+    local s3 = AddSection(s2, -14, L.s3_header, L.s3_body)
 
     mainFrame = f
     f:Hide()
@@ -138,4 +136,4 @@ SLASH_SMARTTABTARGET2 = "/stt"
 SlashCmdList["SMARTTABTARGET"] = ToggleGUI
 
 UpdateOverride()
-DEFAULT_CHAT_FRAME:AddMessage("|cff33ff99SmartTabTargetForever:|r carregado. /smarttab abre o menu.")
+DEFAULT_CHAT_FRAME:AddMessage(L.loaded)
